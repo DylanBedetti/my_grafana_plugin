@@ -26,6 +26,7 @@
   "dependencies": {
     "@grafana/runtime": "^6.7.1",
     "react-bootstrap": "^1.0.0",
+    "react-gauge-chart": "^0.2.5",
     "react-svg-gauge": "^1.0.10"
   }
 }
