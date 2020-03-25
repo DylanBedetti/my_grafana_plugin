@@ -1,0 +1,38 @@
+{
+  "type": "panel",
+  "name": "my-grafana-plugin",
+  "id": "main-org-my-grafana-plugin",
+  "info": {
+    "description": "This is a test plugin by Dylan",
+    "author": {
+      "name": "Dylan Bedetti",
+      "url": ""
+    },
+    "keywords": [
+      "keywords",
+      "first",
+      "test"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/grafana/simple-react-panel"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/grafana/simple-react-panel/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaVersion": "6.3.x",
+    "plugins": []
+  }
+}
