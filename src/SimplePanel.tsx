@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 // import Gauge from 'react-svg-gauge';
 import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import GaugeChart from 'react-gauge-chart'
 
@@ -26,24 +26,15 @@ export class SimplePanel extends PureComponent<Props> {
 
     function setZero() {
       let currVal = data.series[1].fields[0].values.toArray().slice(-1)[0] - zeroVal;
-      $.ajax({
-        method: "POST",
-        url: 'http://localhost:8086/write?db=DASH',
-        data: "zero_constant value=" + currVal,
-        success: function (data) {
-          console.log("AJAX Success");
-        },
-        error: function (err) {
-          console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
-        }
-      })
+      options.text = currVal.toString();
     }
 
     function getZero() {
+      let n: any = options.text;
 
-      if (Array.isArray(data.series) && data.series.length) {
-        zeroVal = data.series[0].fields[0].values.toArray().slice(-1)[0];
-        console.log(zeroVal);
+      if (!isNaN(parseFloat(n)) && !isNaN(n - 0)) {
+        zeroVal = parseFloat(options.text);
+        console.log('zeroVal', zeroVal);
       } else {
         console.log('data not avaliable');
         zeroVal = 0;
@@ -95,6 +86,7 @@ export class SimplePanel extends PureComponent<Props> {
             Zero
           </Button>
         </div>
+        {/* <div>Input test value: {options.text}</div> */}
       </div>
     );
   }
